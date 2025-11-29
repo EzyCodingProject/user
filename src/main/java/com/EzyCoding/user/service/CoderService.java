@@ -87,7 +87,7 @@ public class CoderService {
         try {
             ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
             if (response.getStatusCode().is2xxSuccessful()) {
-                // handleMessageProducer.sendHandle(handle);
+                handleMessageProducer.sendHandle(handle);
                 return "Success";
             } else {
                 return "Failed";

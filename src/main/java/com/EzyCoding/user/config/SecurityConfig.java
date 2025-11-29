@@ -20,9 +20,8 @@ public class SecurityConfig {
         OpaqueTokenIntrospector googleOpaqueTokenIntrospector) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login")
-                        .authenticated()
-                        .anyRequest().authenticated())
+                        .anyRequest()
+                        .permitAll())
                 .oauth2Login(oauth -> oauth.successHandler(successHandler))
                 .oauth2ResourceServer(auth -> auth
                         .opaqueToken(opaque -> opaque.introspector(googleOpaqueTokenIntrospector)));
